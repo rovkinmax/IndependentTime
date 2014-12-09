@@ -12,6 +12,13 @@ public class TimeReceiver extends BroadcastReceiver
     @Override
     public void onReceive(Context context, Intent intent)
     {
+        if (SettingsMaster.getTime(context) <= 0)
+        {
+            IndependentTimeHelper.stopTimer(context);
+            return;
+        }
+
+
         final String action = intent.getAction();
         if (action.equals(Intent.ACTION_BOOT_COMPLETED))
             startReceiverAfterBootComplete(context);
@@ -26,6 +33,7 @@ public class TimeReceiver extends BroadcastReceiver
 
     private void startReceiverAfterBootComplete(final Context context)
     {
+
         final long systemTime = SettingsMaster.getSystemTime(context);
         if (systemTime > 0)
         {
@@ -37,9 +45,9 @@ public class TimeReceiver extends BroadcastReceiver
             final long localTime = SettingsMaster.getTime(context);
             final long newLocalTime = localTime + offTime;
             SettingsMaster.setTime(context, newLocalTime);
+            IndependentTimeHelper.startTimer(context);
         }
 
-        IndependentTimeHelper.startTimer(context);
     }
 
 
