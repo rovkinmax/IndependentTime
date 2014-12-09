@@ -27,7 +27,7 @@ final long someServerTime = System.currentTimeMillis();//or get time from your s
 IndependentTimeHelper.setServerTime(this, someServerTime);
 ```
 
-- Get updated local local time   
+- Get updated  local time   
 
 ```java
 final long localTime = IndependentTimeHelper.getTime(this);
