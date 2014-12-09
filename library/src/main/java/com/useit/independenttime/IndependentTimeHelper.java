@@ -14,6 +14,7 @@ public class IndependentTimeHelper
     {
         stopTimer(context);
         SettingsMaster.setTime(context, serverTime);
+        SettingsMaster.setSystemTime(context,System.currentTimeMillis());
         SettingsMaster.setFlashBack(context, false);
         startTimer(context);
     }
