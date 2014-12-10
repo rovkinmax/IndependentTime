@@ -2,7 +2,7 @@ IndependentTime
 ===============			
 
 ## Use
-- Import ibrary module in your project
+- Import library module in your project
 - add permission 
 ```xml
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
